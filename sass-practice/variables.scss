@@ -1,0 +1,13 @@
+$primary: darkblue;
+$alternate: purple;
+$h: 50vh;
+$w: 65vw;
+$hh: 25vh;
+$ww: 40vw;
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction
+}

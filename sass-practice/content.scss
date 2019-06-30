@@ -1,0 +1,10 @@
+@import "./variables.css";
+
+main-content {
+    background: $primary;
+  @include flexCenter(row);
+  h2 {
+      display: flex;
+      align-content: flex-end;
+  }
+}
