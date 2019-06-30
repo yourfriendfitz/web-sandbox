@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<head>
+    <title>All About Fitz</title>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="box1">
+            <div class="accent" id="ac-one">
+                <h1 class="style1"> About Me: Joshua "Fitz" Fitzgerald</h1>
+            </div>
+            <div class="accent" id="ac-two" >
+                <h2 class="style2">A Quick Bio:</h2>
+            </div>
+        </div>
+        <div class="box2">
+            <p id="bio">I was born in Florida, but I ended up moving to Pennsylvania, from there to West Virginia, then over to Colorado, and recently down to Texas.
+            I am a casual, down-to-earth guy, with an open-mind. I have a loving wife who pushes me to succeed as hard as I push myself. I am an open book with
+            too many pages to summarize in a few short sentences. So if you have a question, just ask me. </p>
+        </div>
+        <img id="image1" src="/Users/fitz/Documents/web-projects/about-me/fitz-at-rocky-mountain-national-estes.jpg" alt="fitz-estes">
+        <div class="box3">
+            <div class="accent" id="ac-three">
+                <h2 class="style2">My Goals:</h2>
+            </div>
+            <p id="goals">I have found passion for the design and creation of web content and applications. I hope to channel that passion with others. Success for me means 
+                developing content that users will interact with easily, and developing content that can be characterized as fresh, with a pleasing aesthetic. I will seek to establish a reputation for
+                intuitive design, and originality in my work; I hope to be known as a collaborator and team player that treats everyone with courtesy and respect.
+            </p>
+        </div>
+        <div class="box4">
+            <div class="accent" id="ac-four">
+                <h2 class="style2">Hobbies:</h2>
+            </div>
+        </div>
+        <div class="box5">
+            <div class="accent" id="ac-five">
+                <ul class="hobbies">
+                    <li>Piano</li>
+                    <li>Guitar/Bass</li>
+                    <li>Drumset</li>
+                    <li>Ukelele</li>
+                </ul>
+            </div>
+            <div class="accent" id="ac-six">
+                <ul class="hobbies">
+                    <li>Running</li>
+                    <li>Lifting</li>
+                    <li>Climbing</li>
+                    <li>Swimming</li>
+                </ul>
+            </div>
+            <div class="accent" id="ac-seven">
+                <ul class="hobbies">
+                    <li>Coding</li>
+                    <li>Karaoke</li>
+                    <li>Cooking</li>
+                    <li>Camping</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="box6">
+            <div class="head">
+                <div class="eye1">
+                    <div class="bottomcircle">
+                        <div class="iris">
+                            <div class="pupil"></div>
+                            <div class="light"></div>
+                        </div>
+                    </div>
+                    <div class="topcircle"></div>
+                </div>
+                <div class="eye2">
+                    <div class="bottomcircle">
+                        <div class="iris">
+                            <div class="pupil"></div>
+                            <div class="light"></div>
+                        </div>
+                    </div>
+                    <div class="topcircle"></div>
+                </div>
+                </div>
+                <div class="nose">
+                    <div class="arrow-left"></div>
+                </div>
+                <div class="mouth"></div>
+                <div class="hair"></div>
+                <div class="hair2"></div>
+                <div class="hair3"></div>
+                <div class="hair4"></div>
+            </div>
+        </div>
+    </div>
+    <div class="box7">
+        <div class="talk-bubble">
+            <div class="talk-text"><p id="animated">Hello Visitor!</p></div>
+        </div>
+        <div class="talk-bubble" id="chat2">
+            <div class="talk-text" id="gitLink"> Find me on GitHub:<a href="https://github.com/yourfriendfitz">  YourFriendFitz </a></a></div>
+        </div>
+    </div>
+    <div class="box8">
+        
+    </div>
+    <div class="box9"></div>
+    <div class="box10"></div>
+</body>
+<script>
+        // Generate a random blink interval on page load
+        var adjustedHigh = parseFloat(8000) - parseFloat(5000) + 1;
+        var numRand = Math.floor(Math.random() * adjustedHigh) + parseFloat(5000);
+        var blinkInterval = numRand;
+        console.log(blinkInterval);
+    
+        // blink the eyelids
+        function blink() {
+        $(".topcircle").addClass("eye-close");
+        setTimeout(function() {
+            $(".topcircle").removeClass("eye-close");
+        }, 1000);
+        }
+    
+        // run the blink function with random interval
+        setInterval(function() {
+        blink();
+        }, blinkInterval);
+    </script>

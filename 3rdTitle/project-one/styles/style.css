@@ -1,0 +1,47 @@
+
+.header {
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center
+}
+
+body {
+    background-image: url("wood.jpg");
+    align-self: auto
+}
+
+.main {
+    /* background */
+    background-size: auto;
+    max-width: 100%;
+}
+
+p {
+    text-align: justify;
+    text-indent: 50px;
+    padding: 10px 10px 10px 10px;
+    border: solid;
+    background: white;
+    align-content: center;
+    max-width: 50%;
+    margin: auto;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.footer {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
+

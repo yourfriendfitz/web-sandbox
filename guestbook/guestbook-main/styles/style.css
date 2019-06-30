@@ -1,0 +1,66 @@
+html {
+    font-family: 'Archivo Narrow', sans-serif;
+}
+
+.header {
+    width: 100%;
+    background-color: beige;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+body {
+    background-image: url("wood.jpg");
+    align-self: auto
+}
+
+form {
+    margin: auto;
+    padding: 10px 10px 10px 10px;
+    align-content: center;
+    max-width: 20%;
+    border: solid;
+    background-color: beige;
+}
+
+.main {
+    /* background */
+    background-size: auto;
+    max-width: 100%;
+}
+
+p {
+    text-align: justify;
+    text-indent: 50px;
+    padding: 10px 10px 10px 10px;
+    border: solid;
+    background-color: beige;
+    align-content: center;
+    max-width: 50%;
+    margin: auto;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 75%;
+}
+
+.footer {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    background-color: beige;
+    text-align: center;
+    margin: auto;
+  }
+
+a {
+    color: plum
+}
+
