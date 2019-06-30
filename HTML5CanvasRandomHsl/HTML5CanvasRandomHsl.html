@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+
+<body>
+  <h1>The Values for Hue, Saturation, and Lightness are Randomly Generated</h1>
+  <form id="all-inputs">
+    <div id="inputs">
+      <button onclick="resetCanvas ()">Reset Canvas</button>
+
+      <label for="random-solid"><input id="random-solid" type="checkbox" name="random-solid">Random Color Off</label>
+      <label for="color-select"><input id="color-select" type="range"  name="rgb-red" min="0" max="255" value="0">RGB Red</label>
+      <label for="color-select"><input id="color-select" type="range" name="rgb-green" min="0" max="255" value="0">RGB Green</label>
+      <label for="color-select"><input id="color-select" type="range" name="rgb-blue" min="0" max="255" value="0">RGB Blue</label>
+
+      <label for="color-red"><input id="color-red" type="radio" name="color" value="Red-Yellow" checked>Red-Yellow</label>
+      <label for="color-green"><input id="color-green" type="radio" name="color" value="Green-Light Blue">Green-Light
+        Blue</label>
+      <label for="color-blue"><input id="color-blue" type="radio" name="color" value="Blue-Purple">Blue-Purple</label>
+
+      <label for="line-join"><input id="bevel-join" type="radio" name="line-join" value="bevel">Bevel Line-Join</label>
+      <label for="line-join"><input id="round-join" type="radio" name="line-join" value="round" checked>Round Line-Join</label>
+      <label for="line-join"><input id="miter-join" type="radio" name="line-join" value="miter">Miter Line-Join</label>
+
+      <label for="line-cap"><input id="butt-cap" type="radio" name="line-cap" value="butt">Butt Line-Cap</label>
+      <label for="line-cap"><input id="round-cap" type="radio" name="line-cap" value="round" checked>Round Line-Cap</label>
+      <label for="line-cap"><input id="square-cap" type="radio" name="line-cap" value="square">Square Line-Cap</label>
+
+      <label for="line-width"><input id="line-width" type="range" name="line-width" min="15" max="75" value="40">Line
+        Width</label>
+
+      <label for="global-composite-operation"><input id="source-over" type="radio" name="global-composite-operation"
+          value="0" checked>Source Over</label>
+      <label for="global-composite-operation"><input id="source-in" type="radio" name="global-composite-operation"
+          value="1">Source In</label>
+      <label for="global-composite-operation"><input id="source-out" type="radio" name="global-composite-operation"
+          value="2">Source Out</label>
+      <label for="global-composite-operation"><input id="source-atop" type="radio" name="global-composite-operation"
+          value="3">Source Atop</label>
+      <label for="global-composite-operation"><input id="destination-over" type="radio" name="global-composite-operation"
+          value="4">Destination Over</label>
+      <label for="global-composite-operation"><input id="destination-in" type="radio" name="global-composite-operation"
+          value="5">Destination In</label>
+      <label for="global-composite-operation"><input id="destination-out" type="radio" name="global-composite-operation"
+          value="6">Destination Out</label>
+      <label for="global-composite-operation"><input id="destination-atop" type="radio" name="global-composite-operation"
+          value="7">Destination Atop</label>
+
+      <label for="global-composite-operation"><input id="lighter" type="radio" name="global-composite-operation"
+          value="8">Lighter</label>
+      <label for="global-composite-operation"><input id="darken" type="radio" name="global-composite-operation"
+          value="9">Darken</label>
+      <label for="global-composite-operation"><input id="lighten" type="radio" name="global-composite-operation"
+          value="10">Lighten</label>
+      <label for="global-composite-operation"><input id="copy" type="radio" name="global-composite-operation"
+          value="11">Copy</label>
+      <label for="global-composite-operation"><input id="xor" type="radio" name="global-composite-operation"
+          value="12">Xor</label>
+      <label for="global-composite-operation"><input id="multiply" type="radio" name="global-composite-operation"
+          value="13">Multiply</label>
+      <label for="global-composite-operation"><input id="screen" type="radio" name="global-composite-operation"
+          value="14">Screen</label>
+      <label for="global-composite-operation"><input id="overlay" type="radio" name="global-composite-operation"
+          value="15">Overlay</label>
+      <label for="global-composite-operation"><input id="color-dodge" type="radio" name="global-composite-operation"
+          value="16">Color Dodge</label>
+      <label for="global-composite-operation"><input id="color-burn" type="radio" name="global-composite-operation"
+          value="17">Color Burn</label>
+      <label for="global-composite-operation"><input id="hard-light" type="radio" name="global-composite-operation"
+          value="18">Hard Light</label>
+      <label for="global-composite-operation"><input id="soft-light" type="radio" name="global-composite-operation"
+          value="19">Soft Light</label>
+      <label for="global-composite-operation"><input id="difference" type="radio" name="global-composite-operation"
+          value="20">Difference</label>
+      <label for="global-composite-operation"><input id="exclusion" type="radio" name="global-composite-operation"
+          value="21">Exclusion</label>
+      <label for="global-composite-operation"><input id="hue" type="radio" name="global-composite-operation"
+          value="22">Hue Adopt</label>
+      <label for="global-composite-operation"><input id="saturation" type="radio" name="global-composite-operation"
+          value="23">Saturation Adopt</label>
+      <label for="global-composite-operation"><input id="color" type="radio" name="global-composite-operation"
+          value="24">Color Adopt</label>
+      <label for="global-composite-operation"><input id="luminosity" type="radio" name="global-composite-operation"
+          value="25">Luminosity</label>
+    </div>
+  </form>
+  <canvas id="draw" width="800" height="800"></canvas>
+  <script>
+    const canvas = document.querySelector('#draw');
+    const ctx = canvas.getContext('2d');
+
+    const globalCompStyles = ['source-over', 'source-in', 'source-out', 'source-atop', 'destination-over', 'destination-in', 'destination-out', 'destination-atop', 'lighter', 'darken', 'lighten', 'copy', 'xor', 'multiply', 'screen', 'overlay', 'color-dodge', 'color-burn', 'hard-light', 'soft-light', 'difference', 'exclusion', 'hue', 'saturation', 'color', 'luminosity'];
+
+    canvas.width = window.innerWidth;
+    canvas.heigth = window.innerHeight;
+
+    function lineStyle() {
+      if (document.getElementById('bevel-join').checked) {
+        ctx.lineJoin = 'bevel';
+      }
+      if (document.getElementById('round-join').checked) {
+        ctx.lineJoin = 'round';
+      }
+      if (document.getElementById('miter-join').checked) {
+        ctx.lineJoin = 'miter';
+      }
+      if (document.getElementById('butt-cap').checked) {
+        ctx.lineCap = 'butt';
+      }
+      if (document.getElementById('round-cap').checked) {
+        ctx.lineCap = 'round';
+      }
+      if (document.getElementById('square-cap').checked) {
+        ctx.lineCap = 'square';
+      }
+      ctx.lineWidth = document.getElementById('line-width').value
+      ctx.globalCompositeOperation = String(globalCompStyles[`${document.querySelector('input[name="global-composite-operation"]:checked').value}`]);
+    }
+
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    let [hue, saturation, lightness] = [];
+
+    function strokeColor() {
+      const [rgbRed, rgbBlue, rgbGreen] = [
+        `${document.querySelector('input[name="rgb-red"]').value}`,
+        `${document.querySelector('input[name="rgb-blue"]').value}`,
+        `${document.querySelector('input[name="rgb-green"]').value}`
+        ];
+      ctx.strokeStyle = `rgb(${rgbRed}, ${rgbBlue}, ${rgbGreen})`;
+    };
+
+    function randomHue() {
+      let [min, max] = [0, 360];
+      if (document.getElementById('color-red').checked) {
+        [min, max] = [0, 70];
+      }
+      if (document.getElementById('color-green').checked) {
+        [min, max] = [71, 190];
+      }
+      if (document.getElementById('color-blue').checked) {
+        [min, max] = [205, 305];
+      }
+      var random = Math.floor(Math.random() * (+max - +min)) + +min;
+      hue = random;
+    }
+
+    function randomSaturation() {
+      const [min, max] = [25, 100];
+      var random = Math.floor(Math.random() * (+max - +min)) + +min;
+      var randomPercentage = Number(random / 100).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
+      saturation = randomPercentage;
+    }
+    function randomLightness() {
+      const [min, max] = [40, 65];
+      var random = Math.floor(Math.random() * (+max - +min)) + +min;
+      var randomPercentage = Number(random / 100).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
+      lightness = randomPercentage;
+    }
+
+    function resetCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.heigth);
+      document.getElementById('all-inputs').reset();
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      if (!document.getElementById("random-solid").checked) {
+        randomHue();
+        randomSaturation();
+        randomLightness();
+        ctx.strokeStyle = `hsl(${hue}, ${saturation}, ${lightness})`;
+      } else {
+        strokeColor();
+      }
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.stroke();
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+      lineStyle();
+    }
+
+    canvas.addEventListener('mousemove', draw, lineStyle);
+    canvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+      lineStyle();
+    });
+
+    canvas.addEventListener('mouseup', () => isDrawing = false);
+    canvas.addEventListener('mouseout', () => isDrawing = false);
+
+  </script>
+
+  <style>
+    .root {
+      --background: white;
+    }
+    html,
+    body {
+      margin: 0;
+      background: var(--background)
+    }
+
+    h1 {
+      font-size: 10pt;
+      text-align: center;
+    }
+
+    #inputs {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid black;
+      padding: 10px;
+      font-size: 8pt;
+    }
+
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+
+</body>
+
+</html>
