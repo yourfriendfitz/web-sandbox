@@ -1,7 +1,7 @@
 import googlemaps
 from datetime import datetime
 
-gmaps = googlemaps.Client(key='AIzaSyBacmzQ-YkM-3wy2cE0OCJbnDt8X6Zim1c')
+gmaps = googlemaps.Client(key='enter-api-key-here')
 
 # Geocoding an address
 # geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
@@ -16,7 +16,7 @@ directions_result = gmaps.directions("H-E-B, 10251 Kempwood Dr, Houston, TX 7704
                                      mode="walking",
                                      departure_time=now)
 
-html_instructions = []                                    
+html_instructions = []
 
 
 for array in directions_result:
