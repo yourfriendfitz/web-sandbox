@@ -1,0 +1,8 @@
+h2 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 5vh;
+  padding-bottom: 10vh;
+  border: 1vw solid;
+}
