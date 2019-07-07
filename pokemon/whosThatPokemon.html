@@ -1,102 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Who's that Pokemon</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Who's that Pokemon</title>
+  </head>
+  <body>
+    <div class="aligned-right">
+      <div class="controls">
+        <label for="inversion">Inversion:</label>
+        <input
+          id="inversion"
+          type="range"
+          name="inversion"
+          min="0"
+          max="100"
+          value="0"
+          data-suffix="%"
+        />
 
-  <div class="aligned-right">
-    <div class="controls">
-      <label for="inversion">Inversion:</label>
-      <input id="inversion" type="range" name="inversion" min="0" max="100" value="0" data-suffix="%">
-  
-      <label for="rotation">Rotation:</label>
-      <input id="rotation" type="range" name="rotation" min="-45" max="45" value="0" data-suffix="deg">
-  
-      <label for="transparency">Transparency:</label>
-      <input id="transparency" type="range" name="transparency" min="0.0" max="1.0" step="0.05" value="0.0">
+        <label for="rotation">Rotation:</label>
+        <input
+          id="rotation"
+          type="range"
+          name="rotation"
+          min="-45"
+          max="45"
+          value="0"
+          data-suffix="deg"
+        />
+
+        <label for="transparency">Transparency:</label>
+        <input
+          id="transparency"
+          type="range"
+          name="transparency"
+          min="0.0"
+          max="1.0"
+          step="0.05"
+          value="0.0"
+        />
+      </div>
     </div>
-  </div>
 
-  <img src="https://i.imgur.com/KNbNIEH.png">
+    <img src="https://i.imgur.com/KNbNIEH.png" />
 
-  <style>
-    :root {
-      --inversion: 0%;
-      --rotation: 0deg;
-      --transparency: 0.0;
-    }
+    <style>
+      /* CSS Variable are declared in the root */
+      :root {
+        --inversion: 0%;
+        --rotation: 0deg;
+        --transparency: 0;
+      }
 
-    img {
-      position: absolute;
-      filter: invert(var(--inversion));
-      transform: rotate(var(--rotation));
-      opacity: var(--transparency);
-      display: inline-block;
-      border-radius: 50%;
-      max-width: 35%;
-      max-height: 30%;
-      margin: auto;
-      left: 23%;
-      top: 38%;
-    }
+      img {
+        position: absolute;
+        filter: invert(var(--inversion));
+        transform: rotate(var(--rotation));
+        opacity: var(--transparency);
+        display: inline-block;
+        border-radius: 50%;
+        max-width: 35%;
+        max-height: 30%;
+        margin: auto;
+        left: 23%;
+        top: 38%;
+      }
 
-    /*
+      /*
       misc styles, nothing to do with CSS variables
     */
 
-    body {
-      position: relative;
-      text-align: center;
-      background-image: url('who-pokemon.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      min-height: 800px;
-      color: white;
-      font-family: 'helvetica neue', sans-serif;
-      font-weight: 100;
-      font-size: 50px;
-    }
+      body {
+        position: relative;
+        text-align: center;
+        background-image: url("who-pokemon.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        min-height: 800px;
+        color: white;
+        font-family: "helvetica neue", sans-serif;
+        font-weight: 100;
+        font-size: 50px;
+      }
 
-    .aligned-right {
-      position: absolute;
-      max-width: 25%;
-      max-height: 75%;
-      font-size: 20px;
-      text-shadow: 1px 1px 2px black;
-      right: 5%;
-      top: 25%;
-      border: 5px solid white;
-      border-radius: 25%;
-    }
+      .aligned-right {
+        position: absolute;
+        max-width: 25%;
+        max-height: 75%;
+        font-size: 20px;
+        text-shadow: 1px 1px 2px black;
+        right: 5%;
+        top: 25%;
+        border: 5px solid white;
+        border-radius: 25%;
+      }
 
-    .controls {
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 15px;
-    }
+      .controls {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 15px;
+      }
 
-    input {
-      width: 100px;
-    }
-  </style>
+      input {
+        width: 100px;
+      }
+    </style>
 
-  <script>
-    const inputs = document.querySelectorAll('.controls input');
+    <script>
+      const inputs = document.querySelectorAll(".controls input");
 
-    function handleUpdate() {
-      const propSuffix = this.dataset.suffix || '';
-      document.documentElement.style.setProperty(`--${this.name}`, (this.value + propSuffix));
-    }
+      function handleUpdate() {
+        const propSuffix = this.dataset.suffix || "";
+        document.documentElement.style.setProperty(
+          `--${this.name}`,
+          this.value + propSuffix
+        );
+      }
 
-    inputs.forEach(input => input.addEventListener("change", handleUpdate));
-    inputs.forEach(input => input.addEventListener("mousemove", handleUpdate));
-  </script>
-
-</body>
+      inputs.forEach(input => input.addEventListener("change", handleUpdate));
+      inputs.forEach(input =>
+        input.addEventListener("mousemove", handleUpdate)
+      );
+    </script>
+  </body>
 </html>
