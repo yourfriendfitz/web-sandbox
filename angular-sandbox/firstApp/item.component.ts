@@ -6,5 +6,8 @@ import { Component } from "@angular/core";
   styleUrls: ["./item.component.css"]
 })
 export class ItemComponent {
-  name = "Item"
+  name = "Item";
+  isItem = () => {
+    return true;
+  };
 }
