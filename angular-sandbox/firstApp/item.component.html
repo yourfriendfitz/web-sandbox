@@ -1,4 +1,6 @@
 <div class="container">
-  <div [textContent]="{{ name }}"></div>
+  <div [textContent]="{{ item.id }}"></div>
+  <div [textContent]="{{ item.name }}"></div>
   <div class="method">{{ isItem() }}</div>
+  <div [textContent]="{{ item.isFavorite }}"></div>
 </div>
