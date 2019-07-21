@@ -1,5 +1,5 @@
 module.exports = function() {
-  var faker = require("faker");
+  var faker = require("./fake-person-maker/node_modules/faker");
   var _ = require("lodash");
   return {
     people: _.times(50, function(n) {
